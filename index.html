@@ -1,53 +1,48 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <title>Join Lifesteal SMP</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style>
-      html, body { height: 100%; }
-      body { margin: 0; background: #161616; color: #000; }
-      .center { min-height: 100%; display: flex; align-items: center; justify-content: center; text-align: center; }
-      .wrap { display: flex; flex-direction: column; gap: 12px; align-items: center; }
-      img { max-width: 200px; height: auto; }
-      h1 { font: 600 52px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; }
-      .name { font: 400 18px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
-      .btn { font: 600 20px/1 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: #000; background: #f2f2f2; border: 1px solid #000; padding: 12px 20px; border-radius: 8px; cursor: pointer; }
-      .btn:active { transform: translateY(1px); }
-    </style>
-    <script>
-      (function () {
-        var serverName = 'Lifesteal SMP';
-        var url = 'minecraft://acceptRealmInvite?inviteID=4TmLrnUtSXVXj2Q/';
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Join Lifesteal SMP</title>
+  <link rel="icon" href="favicon.ico">
 
-        window.addEventListener('DOMContentLoaded', function () {
-          var btn = document.getElementById('join-btn');
-          if (btn) {
-            btn.textContent = 'Join ' + serverName;
-            btn.addEventListener('click', function () {
-              try { window.location.replace(url); } catch (e) { window.location.href = url; }
-            });
-          }
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #161616;
+      font-family: system-ui, sans-serif;
+    }
+    .stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    img { max-width: 200px; }
+    button {
+      padding: 12px 20px;
+      font-size: 20px;
+      font-weight: 600;
+      border-radius: 8px;
+      border: 1px solid #000;
+      background: #f2f2f2;
+      cursor: pointer;
+    }
+  </style>
 
-          setTimeout(function () {
-            try {
-              window.location.replace(url);
-            } catch (e) {
-              // Fallback attempt
-              window.location.href = url;
-            }
-          }, 500);
-        });
-      })();
-    </script>
-  </head>
-  <body>
-    <div class="center">
-      <div class="wrap">
-        <button id="join-btn" class="btn" type="button">Join</button>
-        <img src="logo.png" alt="Server Logo" />
-      </div>
-    </div>
-  </body>
+  <script>
+    const join = () =>
+      location.href = 'minecraft://acceptRealmInvite?inviteID=4TmLrnUtSXVXj2Q/';
+    window.onload = join;
+  </script>
+</head>
+<body>
+  <div class="stack">
+    <img src="logo.png" alt="Lifesteal SMP">
+    <button onclick="join()">Join Lifesteal SMP</button>
+  </div>
+</body>
 </html>
